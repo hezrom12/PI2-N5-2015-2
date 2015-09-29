@@ -38,7 +38,7 @@ public class ProdutoMB {
 
     public String novoProduto(){
         produtoSelecionado=new Produto();
-        return("/admin/formProduto?faces-redirect=true");
+        return("/admin/formProdutoAdd?faces-redirect=true");
     }
 
     public String adicionarProduto()

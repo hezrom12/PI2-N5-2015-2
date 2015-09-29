@@ -38,7 +38,7 @@ public class ClienteMB {
 
     public String novoCliente(){
         clienteSelecionado=new Cliente();
-        return("/admin/formCliente?faces-redirect=true");
+        return("/admin/formClienteAdd?faces-redirect=true");
     }
 
     public String adicionarCliente()

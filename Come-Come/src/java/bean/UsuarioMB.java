@@ -38,7 +38,7 @@ public class UsuarioMB {
 
     public String novoUsuario(){
         usuarioSelecionado=new Usuario();
-        return("/admin/formUsuario?faces-redirect=true");
+        return("/admin/formUsuarioAdd?faces-redirect=true");
     }
 
     public String adicionarUsuario()
