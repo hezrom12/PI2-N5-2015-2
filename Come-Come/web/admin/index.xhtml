@@ -12,9 +12,9 @@
         <ui:composition template="./template.xhtml">
         <ui:define name="content">
         
-        <h:panelGroup id="usuario" layout="block">
+            <h:panelGroup style="table-layout:fixed" id="usuario" layout="block">
         <h:form>
-             <h:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
+            <h:dataTable styleClass="tabelas" var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
                 <f:facet name="header">
                     <h:outputText value="Tabela de Usuários" />
                 </f:facet>
@@ -60,7 +60,7 @@
         </h:panelGroup>
         <h:panelGroup id="produto" layout="block">
         <h:form>
-             <h:dataTable var="produto" value="#{produtoMB.listaProdutos}" border="1">
+            <h:dataTable styleClass="tabelas" var="produto" value="#{produtoMB.listaProdutos}" border="1">
                 <f:facet name="header">
                     <h:outputText value="Tabela de Produtos" />
                 </f:facet>
@@ -107,7 +107,7 @@
         </h:panelGroup>
         <h:panelGroup id="cliente" layout="block">
         <h:form>
-             <h:dataTable var="cliente" value="#{clienteMB.listaClientes}" border="1">
+             <h:dataTable styleClass="tabelas"  var="cliente" value="#{clienteMB.listaClientes}" border="1">
                 <f:facet name="header">
                     <h:outputText value="Tabela de Clientes" />
                 </f:facet>
@@ -125,7 +125,7 @@
                     <h:outputText id="idTelefone" value="#{cliente.telefone}"  />
                 </h:column>
                 
-                <h:column>
+                <h:column>  
                     <f:facet name="header">
                         <h:outputText value="Email" />
                     </f:facet>
