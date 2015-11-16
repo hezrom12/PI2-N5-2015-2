@@ -1,22 +1,20 @@
 package bean;
 
-import model.Cliente;
-import java.util.ArrayList;
+import entidade.Cliente;
+import dao.ClienteDaoJpa;
 import java.util.List;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
-@ManagedBean(eager = true)
-@ApplicationScoped 
+@ManagedBean
+@SessionScoped 
 public class ClienteMB {
 
     private List<Cliente> listaClientes;
     private Cliente clienteSelecionado;
 
     public ClienteMB() {
-        clienteSelecionado = new Cliente();
-        listaClientes = new ArrayList<Cliente>();
-       
+        clienteSelecionado = new Cliente();        
     }
 
     public Cliente getClienteSelecionado() {
@@ -43,8 +41,8 @@ public class ClienteMB {
 
     public String adicionarCliente()
     {
-        listaClientes.add(clienteSelecionado);
-        return(this.novoCliente());
+        new ClienteDaoJpa().salvar(clienteSelecionado);
+        return (this.novoCliente());
     }
 
     public String editarCliente(Cliente c){
@@ -53,11 +51,13 @@ public class ClienteMB {
     }
     public String atualizarCliente()
     {
+        new ClienteDaoJpa().salvar(clienteSelecionado);
         return("/admin/index?faces-redirect=true");
     }
 
     public void removerCliente(Cliente cliente){
-        listaClientes.remove(cliente);
+        new ClienteDaoJpa().remover(cliente);
+        
     }
 
 }

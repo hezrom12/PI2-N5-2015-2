@@ -1,7 +1,7 @@
 package bean;
 
+import dao.ProdutoDaoJpa;
 import model.Produto;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -15,7 +15,6 @@ public class ProdutoMB {
 
     public ProdutoMB() {
         produtoSelecionado = new Produto();
-        listaProdutos = new ArrayList<Produto>();
        
     }
 
@@ -27,8 +26,8 @@ public class ProdutoMB {
         this.produtoSelecionado = produtoSelecionado;
     }
 
-    public List<Produto> getListaProdutos() {
-        return listaProdutos;
+    public List<entidade.Produto> getListaProdutos() {
+        return new ProdutoDaoJpa().listar();
     }
 
     public void setListaProdutos(List<Produto> listaProdutos) {
