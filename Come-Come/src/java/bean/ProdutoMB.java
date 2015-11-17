@@ -1,7 +1,7 @@
 package bean;
 
 import dao.ProdutoDaoJpa;
-import model.Produto;
+import entidade.Produto;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -26,7 +26,7 @@ public class ProdutoMB {
         this.produtoSelecionado = produtoSelecionado;
     }
 
-    public List<entidade.Produto> getListaProdutos() {
+    public List<Produto> getListaProdutos() {
         return new ProdutoDaoJpa().listar();
     }
 
@@ -42,7 +42,7 @@ public class ProdutoMB {
 
     public String adicionarProduto()
     {
-        listaProdutos.add(produtoSelecionado);
+        new ProdutoDaoJpa().salvar(produtoSelecionado);
         return(this.novoProduto());
     }
 
@@ -52,11 +52,12 @@ public class ProdutoMB {
     }
     public String atualizarProduto()
     {
+        new ProdutoDaoJpa().salvar(produtoSelecionado);
         return("/admin/index?faces-redirect=true");
     }
 
-    public void removerProduto(Produto produto){
-        listaProdutos.remove(produto);
+    public void removerProduto(Produto p){
+       new ProdutoDaoJpa().remover(p);
     }
 
 }

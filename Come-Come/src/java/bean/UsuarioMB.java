@@ -1,7 +1,6 @@
 package bean;
-
-import model.Usuario;
-import java.util.ArrayList;
+import dao.UsuarioDaoJpa;
+import entidade.Usuario;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -15,8 +14,6 @@ public class UsuarioMB {
 
     public UsuarioMB() {
         usuarioSelecionado = new Usuario();
-        listaUsuarios = new ArrayList<Usuario>();
-        listaUsuarios.add(new Usuario("admin", "admin"));
     }
 
     public Usuario getUsuarioSelecionado() {
@@ -28,7 +25,11 @@ public class UsuarioMB {
     }
 
     public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
+        return new UsuarioDaoJpa().listar();
+    }
+    
+    public List<Usuario> getListaUsuariosalt() {
+        return new UsuarioDaoJpa().listaralt();
     }
 
     public void setListaUsuarios(List<Usuario> listaUsuarios) {
@@ -43,7 +44,7 @@ public class UsuarioMB {
 
     public String adicionarUsuario()
     {
-        listaUsuarios.add(usuarioSelecionado);
+        new UsuarioDaoJpa().salvar(usuarioSelecionado);
         return(this.novoUsuario());
     }
 
@@ -53,11 +54,12 @@ public class UsuarioMB {
     }
     public String atualizarUsuario()
     {
+        new UsuarioDaoJpa().salvar(usuarioSelecionado);
         return("/admin/index?faces-redirect=true");
     }
 
-    public void removerUsuario(Usuario usuario){
-        listaUsuarios.remove(usuario);
+    public void removerUsuario(Usuario u){
+        new UsuarioDaoJpa().remover(u);
     }
 
 }

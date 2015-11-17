@@ -1,5 +1,4 @@
 package bean;
-
 import entidade.Cliente;
 import dao.ClienteDaoJpa;
 import java.util.List;
@@ -26,7 +25,7 @@ public class ClienteMB {
     }
 
     public List<Cliente> getListaClientes() {
-        return listaClientes;
+        return new ClienteDaoJpa().listar();
     }
 
     public void setListaClientes(List<Cliente> listaClientes) {

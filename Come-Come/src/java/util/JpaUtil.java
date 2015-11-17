@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class JpaUtil {
     private static final EntityManagerFactory emf = 
-            Persistence.createEntityManagerFactory("SQL");
+            Persistence.createEntityManagerFactory("Come-ComePU");
     
     public static EntityManager getEntityManager() {
         return emf.createEntityManager();

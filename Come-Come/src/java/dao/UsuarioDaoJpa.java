@@ -4,6 +4,7 @@ package dao;
 import entidade.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import util.JpaUtil;
 
 public class UsuarioDaoJpa implements UsuarioDao {
@@ -44,6 +45,16 @@ public class UsuarioDaoJpa implements UsuarioDao {
     public List<Usuario> listar() {
         EntityManager em = JpaUtil.getEntityManager();
         List<Usuario> listaUsuarios = em.createQuery("SELECT u FROM Usuario u").getResultList();
+        em.close();
+        return (listaUsuarios);
+    }
+    
+    public List<Usuario> listaralt() {
+        EntityManager em = JpaUtil.getEntityManager();
+        Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.nome = :admin");
+        q.setParameter("admin","admin");
+        List<Usuario> listaUsuarios = q.getResultList();
+        
         em.close();
         return (listaUsuarios);
     }
