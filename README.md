@@ -17,4 +17,4 @@ Programação para Internet 2 - Noite - 5º Semestre
 - Uso de templates com Facelets e layout adequado com CSS.
 - Utilização de funcionalidades extras e componentes não relacionados anteriormente: validadores, conversores, listeners e/ou Ajax;
 - Utilização de um sistema de controle de versão (ex: git) e de um ambiente de colaboração e gerenciamento de código baseado nesse controle de versão (ex: github, bitbucket)
-- Utilização de um framework não trabalhado em aula (ex: Primefaces).
+- Utilização de um framework não trabalhado em aula (ex: Primefaces). 
