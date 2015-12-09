@@ -65,7 +65,7 @@ public class ProdutoResource {
     @Consumes("application/json") //Consome json
     @Produces("text/plain") //Produz texto pleno
     public String adicionarProduto(Produto produto) { //Intancia a classe ProdutoMB
-        new ProdutoDaoJpa().salvar(produto); //Método da classe JPA e foi intanciado la em cima abaixo do @EJB)
+        new ProdutoDaoJpa().salvar(produto); //Método da classe JPA e foi intanciado
         return "OK"; //Retorno
     
     }
