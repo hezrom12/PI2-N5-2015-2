@@ -67,6 +67,7 @@ public class LoginMB {
                 "Login inválido!", "Usuário ou senha estão errados!");
         contexto.addMessage("idMensagem", mensagem);
         return ("/login");
+         
     }
 
     public String realizaLogout() {

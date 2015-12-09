@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Projeto Come-Come</title>
+    </h:head>
+    <h:body>
+        <h1>Projeto Come-Come</h1>
+        <!--verificar get context path para template-->
+        <ui:composition template="./template.xhtml">
+        <ui:define name="content">
+        
+            <h:panelGroup style="table-layout:fixed" id="usuario" layout="block">
+        <h:form>
+            <h:dataTable styleClass="tabelas" var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
+                <f:facet name="header">
+                    <h:outputText value="Tabela de Usuários" />
+                </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText id="idNome" value="#{usuario.nome}"  />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email" />
+                    </f:facet>
+                    <h:outputText id="idEmail" value="#{usuario.email}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Login" />
+                    </f:facet>
+                    <h:outputText  id="idLogin" value="#{usuario.login}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="É admin" />
+                    </f:facet>
+                    <h:outputText  value="#{usuario.adminString}" />
+                </h:column>
+                <h:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <h:commandLink value="Editar" action="#{usuarioMB.editarUsuario(usuario)}"/>
+                          &nbsp;<h:outputText value="|" />&nbsp;
+                        <h:commandLink value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Novo Usuario" action="#{usuarioMB.novoUsuario()}"/>
+            <br/><br/>
+        </h:form>
+        </h:panelGroup>
+        <h:panelGroup id="produto" layout="block">
+        <h:form>
+            <h:dataTable styleClass="tabelas" var="produto" value="#{produtoMB.listaProdutos}" border="1">
+                <f:facet name="header">
+                    <h:outputText value="Tabela de Produtos" />
+                </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText id="idNome" value="#{produto.nome}"  />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Preço" />
+                    </f:facet>
+                    <h:outputText id="idPreco" value="#{produto.preco}" />
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantidade" />
+                    </f:facet>
+                    <h:outputText  id="idQuantidade" value="#{produto.qtd}" />
+                </h:column>
+                <h:column>
+                  <f:facet name="header">
+                      <h:outputText value="Fornecedor" />
+                  </f:facet>
+                  <h:outputText  id="idFornecedor" value="#{produto.fornecedor}" />
+                </h:column>
+               
+                <h:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <h:commandLink value="Editar" action="#{produtoMB.editarProduto(produto)}"/>
+                        &nbsp;<h:outputText value="|" />&nbsp;
+                        <h:commandLink value="Remover" action="#{produtoMB.removerProduto(produto)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Novo Produto" action="#{produtoMB.novoProduto()}"/>
+            <br/><br/>
+        </h:form>
+        </h:panelGroup>
+        <h:panelGroup id="cliente" layout="block">
+        <h:form>
+             <h:dataTable styleClass="tabelas"  var="cliente" value="#{clienteMB.listaClientes}" border="1">
+                <f:facet name="header">
+                    <h:outputText value="Tabela de Clientes" />
+                </f:facet>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText id="idNome" value="#{cliente.nome}"  />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Telefone" />
+                    </f:facet>
+                    <h:outputText id="idTelefone" value="#{cliente.telefone}"  />
+                </h:column>
+                
+                <h:column>  
+                    <f:facet name="header">
+                        <h:outputText value="Email" />
+                    </f:facet>
+                    <h:outputText id="idEmail" value="#{cliente.email}" />
+                </h:column>
+                <h:column>
+                   <f:facet name="header">
+                       <h:outputText value="CPF" />
+                   </f:facet>
+                   <h:outputText id="idCpf" value="#{cliente.cpf}"  />
+               </h:column>
+                <h:column>
+                  <f:facet name="header">
+                      <h:outputText value="RG" />
+                  </f:facet>
+                  <h:outputText id="idRg" value="#{cliente.rg}"  />
+              </h:column>
+                 <h:column>
+                  <f:facet name="header">
+                      <h:outputText value="Sexo" />
+                  </f:facet>
+                  <h:outputText id="idSexo" value="#{cliente.sexo}"  />
+              </h:column>
+                  <h:column>
+                  <f:facet name="header">
+                      <h:outputText value="Cidade" />
+                  </f:facet>
+                  <h:outputText id="idCidade" value="#{cliente.cidade}"  />
+              </h:column>
+                 
+                
+                <h:column >
+                    <f:facet name="header">
+                        <h:outputText value="Operação" />
+                    </f:facet>
+                        <h:commandLink value="Editar" action="#{clienteMB.editarCliente(cliente)}"/>
+                        &nbsp;<h:outputText value="|" />&nbsp;
+                        <h:commandLink value="Remover" action="#{clienteMB.removerCliente(cliente)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Novo Cliente" action="#{clienteMB.novoCliente()}"/>
+            <br/><br/>
+            <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
+        </h:form>
+        </h:panelGroup>
+        </ui:define>
+        </ui:composition>  
+  
+    </h:body>
+</html>
+

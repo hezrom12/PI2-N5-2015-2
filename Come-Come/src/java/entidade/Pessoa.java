@@ -10,11 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-/**
- *
- * @author Thiago
- */
+import javax.xml.bind.annotation.XmlRootElement;
+    
+@XmlRootElement
 @Entity
 public class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;

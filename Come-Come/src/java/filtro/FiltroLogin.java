@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebFilter(filterName = "FiltroLogin", urlPatterns = {"/faces/login.xhtml"})
+//@WebFilter(filterName = "FiltroLogin", urlPatterns = {"/faces/login.xhtml"})
 public class FiltroLogin implements Filter {
 
     @Override

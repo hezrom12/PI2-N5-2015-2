@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/usuario/*"})
+//@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/usuario/*"})
 public class FiltroAcessoUsuario implements Filter {
 
     @Override

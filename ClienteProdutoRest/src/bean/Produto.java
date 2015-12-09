@@ -1,5 +1,5 @@
 
-package entidade;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -19,6 +19,13 @@ public class Produto implements Serializable {
     private float preco;
     private int qtd;
     private String fornecedor;
+    public Produto() {
+    }
+
+    public Produto(String nome, String fornecedor) {
+        this.nome = nome;
+        this.fornecedor = fornecedor;
+    }
 
         public Long getId() {
         return id;

@@ -1,5 +1,5 @@
 
-package entidade;
+package bean;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -25,6 +25,10 @@ public class Cliente implements Serializable {
     private String rg;
     private int sexo;
     private String cidade;
+
+    public Cliente(String nome,String email) {
+        
+    }
     
 
         public Long getId() {
